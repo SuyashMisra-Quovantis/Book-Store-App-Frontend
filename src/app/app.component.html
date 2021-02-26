@@ -7,7 +7,7 @@
         <div class="form-group">
           <input
             type="number"
-            name="id"
+            name="_id"
             ngModel
             placeholder="Enter Book ID"
             required
@@ -91,7 +91,7 @@
         <div class="form-group">
           <input
             type="text"
-            name="id"
+            name="_id"
             ngModel
             placeholder="Enter Book ID"
             required
@@ -120,7 +120,7 @@
 
 <ul class="list-group">
   <li class="list-group-item" *ngFor="let book of bookList">
-    Book id: {{ book.id }}, Name: {{ book.name }}, Author:
+    Book id: {{ book._id }}, Name: {{ book.name }}, Author:
     {{ book.author_name }}, Publish Date: {{ book.publish_date }}, Genre:
     {{ book.genre }}
   </li>

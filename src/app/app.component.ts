@@ -20,8 +20,8 @@ export class AppComponent {
         alert('Book added!');
       },
       (error) => {
-        // console.log(error);
-        alert(error.error.text);
+        console.log(error);
+        // alert(error.error.text);
       }
     );
   }
@@ -42,21 +42,28 @@ export class AppComponent {
   }
 
   readBook(form) {
-    this.service.getDataById(form.value.id).subscribe(
+    this.service.getDataById(form.value._id).subscribe(
       (response) => {
-        console.log(JSON.stringify(response));
-        alert(JSON.stringify(response));
-      },
+        // console.log(JSON.stringify(response));
+        // let bk = JSON.parse(response);
+        if (JSON.parse(JSON.stringify(response)).error)
+          alert(JSON.parse(JSON.stringify(response)).error);
+        else {
+          alert(JSON.stringify(response));
+        }
+      } /*
       (error) => {
         // console.log('Error is: ' + JSON.stringify(error.error.text));
         alert(JSON.stringify(error.error.text));
-      }
+      }*/
     );
   }
 
   deleteBook(form) {
-    this.service.deleteData(form.value.id).subscribe(
-      () => {},
+    this.service.deleteData(form.value._id).subscribe(
+      () => {
+        alert('Book deleted!');
+      },
       (error) => {
         alert(error.error.text);
       }
